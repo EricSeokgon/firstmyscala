@@ -30,10 +30,20 @@ object MyModule {
     msg.format(n, factorial(n))
   }
 
-  def main(args: Array[String]): Unit =
-    println(formatAbs(-35))
+  def formatResult(name: String, n: Int, f: Int => Int) = {
+    val msg = "The %s of %d is %d."
+    msg.format(name, n, f(n))
+  }
 
+  def main(args: Array[String]): Unit = {
+    println(formatAbs(-35))
     println(formatFactorial(5))
+    println(formatResult("absolute value", -35, abs))
+    println(formatResult("factorial", 5, factorial))
+
+  }
+
+
 }
 
 
