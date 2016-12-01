@@ -32,8 +32,14 @@ object polymorphic {
     @annotation.tailrec
     def loop(n: Int): Boolean =
       if (n >= as.length) true
-      else if (ordered(as(n),as(n+1))) false
+      else if (ordered(as(n), as(n + 1))) false
       else loop(n + 1)
+
     loop(0)
   }
+
+  def curry[A, B, C](f: (A, B) => C): A => (B => C) =
+    a => b => f(a, b)
+
+
 }
