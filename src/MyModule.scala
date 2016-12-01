@@ -20,6 +20,16 @@ object MyModule {
     go(n, 1)
   }
 
+  def factorial2(n: Int): Int = {
+    var acc = 1
+    var i = n
+    while (i > 0) {
+      acc *= i;
+      i -= 1
+    }
+    acc
+  }
+
   private def formatAbs(x: Int) = {
     val msg = "The absolute value of %d is %d"
     msg.format(x, abs(x))
@@ -30,6 +40,11 @@ object MyModule {
     msg.format(n, factorial(n))
   }
 
+  private def formatFactorial2(n: Int) = {
+    val msg = "The factorial of %d is %d"
+    msg.format(n, factorial2(n))
+  }
+
   def formatResult(name: String, n: Int, f: Int => Int) = {
     val msg = "The %s of %d is %d."
     msg.format(name, n, f(n))
@@ -38,6 +53,7 @@ object MyModule {
   def main(args: Array[String]): Unit = {
     println(formatAbs(-35))
     println(formatFactorial(5))
+    println(formatFactorial2(5))
     println(formatResult("absolute value", -35, abs))
     println(formatResult("factorial", 5, factorial))
 
